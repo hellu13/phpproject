@@ -39,6 +39,11 @@
 						<label for="content_text">내용</label>
 						<textarea id="content_text" name="content_text" class="form-control" rows="10" style="resize:none"></textarea>
 					</div>
+					<div class="input-group">
+    					<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    					<input id="content_pwd" type="password" class="form-control" name="content_pwd" placeholder="Password">
+  					</div>
+					<br>
 					<div class="form-group">
 						<div class="text-right">
 							<button type="submit" class="btn btn-primary">작성하기</button>
