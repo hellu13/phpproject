@@ -38,7 +38,7 @@
     
     
   + 글 삭제  
-  주요 코드  
+    주요 코드  
     [delete.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/delete.php)
   + 글 목록 출력
     + 인덱스 순으로 게시글 출력  
