@@ -54,7 +54,7 @@
 						<div class="text-right">
 							<a href="list.php" class="btn btn-primary">목록보기</a>
 							<a href="modify_chk.php?content_idx=<?=$content_idx?>" class="btn btn-info">수정하기</a>
-							<a href="delete.php?content_idx=<?=$content_idx?>" onclick="return confirm('삭제하시겠습니까?')" class="btn btn-danger">삭제하기</a>
+							<a href="delete_chk.php?content_idx=<?=$content_idx?>" class="btn btn-danger">삭제하기</a>
 						</div>
 					</div>
 				</div>
