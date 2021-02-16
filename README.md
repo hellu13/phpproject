@@ -47,6 +47,8 @@
       
       
   + 글 삭제  
+    + 해당 글 비밀번호 입력 후 삭제  
+    
     > 주요 코드  
     
     [delete.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/delete.php)  
