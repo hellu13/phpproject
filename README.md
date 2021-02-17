@@ -62,8 +62,13 @@
     
     > 구현 화면  
     
-    <img width="540" alt="리스트" src="https://user-images.githubusercontent.com/46749717/107932295-bc63e780-6fc0-11eb-9f34-d85e43652941.png">
-  
+    <img width="540" alt="리스트" src="https://user-images.githubusercontent.com/46749717/107932295-bc63e780-6fc0-11eb-9f34-d85e43652941.png">  
+      
++ 회원 관리
+  + 회원 가입
+    + 빈값 입력 시 alert 
+    + 비밀번호와 비밀번호 확인 값이 다를 경우 alert 출력
+    + ajax 비동기 방식으로 아이디 중복 확인 구현
    
     
     
