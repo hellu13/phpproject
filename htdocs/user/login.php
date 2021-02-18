@@ -41,7 +41,7 @@
 						</div>
 						<div class="form-group text-right">
 							<button type="submit" class="btn btn-primary">로그인</button>
-							<a href="join.html" class="btn btn-danger">회원가입</a>
+							<a href="join.php" class="btn btn-danger">회원가입</a>
 						</div>
 					</form>
 				</div>

@@ -105,11 +105,9 @@
 						</div>
 						<div class="form-group">
 							<label for="user_id">아이디</label>
-							<div class="input-group">
-								<input type="text" id="user_id" name="user_id" class="form-control" onkeypress="resetUserIdExist()/>
-								<div class="input-group-append">
-									<button type="button" onclick="checkUserIdExist()" class="btn btn-primary">중복확인</button>
-								</div>
+							<input type="text" id="user_id" name="user_id" class="form-control" onkeypress="resetUserIdExist()"/>
+							<div>
+								<button type="button" onclick="checkUserIdExist()" class="btn btn-primary" style="float: right">중복확인</button>
 							</div>
 						</div>
 						<div class="form-group">

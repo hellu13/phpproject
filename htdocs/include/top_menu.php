@@ -4,10 +4,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="list.php">PHP BOARD</a>
+      <a class="navbar-brand" href="/board/list.php">PHP BOARD</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="list.php">Home</a></li>
+      <li class="active"><a href="/board/list.php">Home</a></li>
       <li><a href="#">준비중</a></li>
       <li><a href="#">준비중</a></li>
     </ul>
