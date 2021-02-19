@@ -11,6 +11,23 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+	function check() {
+		var id = $("#user_id").val();
+		if(id=="") {
+			alert("아이디를 입력해주세요");
+			$("#user_id").focus();
+			return false;
+		}
+		var pwd = $("#user_pwd").val();
+		if(pwd=="") {
+			alert("비밀번호를 입력해주세요");
+			$("#user_pwd").focus();
+			return false;
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
 
@@ -26,18 +43,20 @@
 		<div class="col-sm-6">
 			<div class="card shadow">
 				<div class="card-body">
+					<!-- 로그인 실패시 출력
 					<div class="alert alert-danger">
 						<h3>로그인 실패</h3>
 						<p>아이디 비밀번호를 확인해주세요</p>
 					</div>
-					<form action="index.html" method="post">
+					-->
+					<form action="login_pro.php" onsubmit="return check();" method="post">
 						<div class="form-group">
 							<label for="user_id">아이디</label>
 							<input type="text" id="user_id" name="user_id" class="form-control"/>
 						</div>
 						<div class="form-group">
-							<label for="user_pw">비밀번호</label>
-							<input type="password" id="user_pw" name="user_pw" class="form-control"/>
+							<label for="user_pwd">비밀번호</label>
+							<input type="password" id="user_pwd" name="user_pwd" class="form-control"/>
 						</div>
 						<div class="form-group text-right">
 							<button type="submit" class="btn btn-primary">로그인</button>

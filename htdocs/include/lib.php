@@ -10,6 +10,4 @@
         echo mysqli_connect_error();
     }
 
-    // 세션
-    session_start();
     
