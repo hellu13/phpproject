@@ -54,15 +54,17 @@
     
   + 글 목록 출력
     + 인덱스 순으로 게시글 출력  
-    + 조회수 출력 - 글 조회시 해당 글에 대한 유효시간을 가진 쿠키값을 생성하여 쿠키값이 존재할 시 조회수 증가를 
+    + 조회수 출력 - 특정 글 조회시 해당 글에 대한 유효시간을 가진 쿠키값을 생성하여 쿠키값이 존재할 시 조회수 증가를 제한
     
     > 주요 코드  
     
-    [list.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/list.php)  
+    [list.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/list.php) / [read.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/read.php)  
+    
     
     > 구현 화면  
     
-    <img width="540" alt="리스트" src="https://user-images.githubusercontent.com/46749717/107932295-bc63e780-6fc0-11eb-9f34-d85e43652941.png">  
+    <img width="540" alt="조회수" src="https://user-images.githubusercontent.com/46749717/108604606-50371880-73f2-11eb-93e4-bf39d9ba8f34.png">
+  
       
 + 회원 관리
   + 회원 가입
