@@ -50,6 +50,13 @@
 						<label for="content_text">내용</label>
 						<textarea id="content_text" name="content_text" class="form-control" rows="10" style="resize:none" disabled="disabled"><?=$data['content_text']?></textarea>
 					</div>
+					<? if($data['content_file']) { ?>
+					<div class="form-group">
+						<label for="content_file">첨부 이미지</label>
+						<br>
+						<img src="../img/<?=$data['content_file']?>" width="270" height="400"/>						
+					</div>
+					<? } ?>
 					<div class="form-group">
 						<div class="text-right">
 							<a href="list.php" class="btn btn-primary">목록보기</a>

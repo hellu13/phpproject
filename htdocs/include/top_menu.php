@@ -1,6 +1,5 @@
 <?
   session_start();
-  print($_SESSION['user_id']);
 ?>
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
