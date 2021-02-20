@@ -15,8 +15,6 @@
 
 + 자유 게시판
   + 글 작성
-    + 양식에 맞게 작성 후 작성된 데이터를 받아 데이터 베이스에 반영  
-    
     > 주요 코드  
     
     [write.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/write.php) / [write_pro.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/write_pro.php)  
@@ -66,9 +64,16 @@
       
 + 회원 관리
   + 회원 가입
-    + 빈값 입력 시 alert 
-    + 비밀번호와 비밀번호 확인 값이 다를 경우 alert
+    + 비밀번호와 비밀번호 확인 값이 다를 경우 경고창 출력
     + ajax 비동기 방식으로 아이디 중복 확인 검사
+  + 로그인/로그아웃
+    + 로그인 성공 시 사용자 정보 세션 영역에 저장
+    + 로그인 여부에 따른 로그인/로그아웃 버튼 선택적 출력  
+        
+    > 주요 코드  
+    
+    [login.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/login.php) / [login_pro.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/login_pro.php) / [logout.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/logout.php)  
+    
    
     
     
