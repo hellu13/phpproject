@@ -15,12 +15,13 @@
 
 + 자유 게시판
   + 글 작성
+    + 파일 업로드 처리 
     > 주요 코드  
     
     [write.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/write.php) / [write_pro.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/write_pro.php)  
     > 구현 화면  
     
-    <img width="540" alt="작성" src="https://user-images.githubusercontent.com/46749717/107932329-c685e600-6fc0-11eb-8f17-d7915cab7d38.png">  
+    <img width="540" alt="첨부1" src="https://user-images.githubusercontent.com/46749717/108591094-2d811180-73aa-11eb-839c-0c8aaeb2fdf7.png">  
     
     
   + 글 읽기  
@@ -30,7 +31,7 @@
   
     > 구현 화면  
     
-    <img width="540" alt="읽기" src="https://user-images.githubusercontent.com/46749717/107932335-c8e84000-6fc0-11eb-957b-e5ce921a7e38.png">  
+    <img width="540" alt="첨부2" src="https://user-images.githubusercontent.com/46749717/108591098-2e19a800-73aa-11eb-8f22-4f63fdc01471.png">  
   
   + 글 수정
     + 해당 글 비밀번호 입력 후 수정 페이지 이동  
