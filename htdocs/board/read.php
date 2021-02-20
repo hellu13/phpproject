@@ -4,9 +4,17 @@
     $content_idx = $_GET['content_idx'];
     $content_idx = mysqli_real_escape_string($connect, $content_idx);
 
+	$cookie = $_COOKIE["content_".$content_idx];
+	if(!$cookie) {
+		setcookie("content_".$content_idx, time(), time()+86400);
+		$query = "update content_table set content_cnt = content_cnt + 1 where content_idx = '$content_idx' ";
+		$result = mysqli_query($connect, $query);
+	}
+
     $query = "select * from content_table where content_idx = '$content_idx' ";
     $result = mysqli_query($connect, $query);
     $data = mysqli_fetch_array($result);
+
 
 ?>
 <!DOCTYPE html>

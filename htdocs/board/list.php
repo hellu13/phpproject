@@ -34,6 +34,7 @@
 						<th class="w-50">제목</th>
 						<th class="text-center d-none d-md-table-cell">작성자</th>
 						<th class="text-center d-none d-md-table-cell">작성날짜</th>
+						<th class="text-center d-none d-md-table-cell">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +45,7 @@
 						<td><a href='read.php?content_idx=<?=$data['content_idx']?>'><?=$data['content_subject']?></a></td>
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_writer_name']?></td>
 						<td class="text-center d-none d-md-table-cell"><?=substr($data['content_date'], 0, 10)?></td>
+						<td class="text-center d-none d-md-table-cell"><?=$data['content_cnt']?></td>
 					</tr>
 					<? } ?>
 				</tbody>
