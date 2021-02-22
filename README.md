@@ -1,7 +1,7 @@
 # PHP 프로젝트(진행중)  
 
 ## 사용 언어
-+ HTML, CSS(BootStrap3), JavaScript
++ HTML, CSS(BootStrap3), JavaScript(
 + PHP
   
 ## 사용 프로그램
