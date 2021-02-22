@@ -79,7 +79,15 @@
 + 회원 관리
   + 회원 가입
     + 비밀번호와 비밀번호 확인 값이 다를 경우 경고창 출력
-    + ajax 비동기 방식으로 아이디 중복 확인 검사
+    + ajax 비동기 방식으로 아이디 중복 확인 검사  
+      
+    > 주요 코드  
+      
+    [join.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/join.php) / [join_pro.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/join_pro.php) / [checkUserIdExist.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/checkUserIdExist.php)  
+    
+    > 구현 화면  
+    <img width="540" alt="회원가입" src="https://user-images.githubusercontent.com/46749717/108707382-424cd900-7553-11eb-9b1f-03ac8ac16ec9.png">
+
   + 로그인/로그아웃
     + 로그인 성공 시 사용자 정보 세션 영역에 저장
     + 로그인 여부에 따른 로그인/로그아웃 버튼 선택적 출력  
