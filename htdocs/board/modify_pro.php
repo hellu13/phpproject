@@ -4,6 +4,7 @@
     $content_idx = $_POST['content_idx'];
     $content_subject = $_POST['content_subject'];
     $content_text = $_POST['content_text'];
+    $currentpage = $_POST['page'];
 
     $content_subject = mysqli_real_escape_string($connect, $content_subject);
     $content_text = mysqli_real_escape_string($connect, $content_text);
@@ -15,5 +16,5 @@
     mysqli_query($connect, $query);
 ?>
 <script>
-	location.href="read.php?content_idx=<?=$content_idx?>";
+	location.href="read.php?content_idx=<?=$content_idx?>&page=<?=$currentpage?>";
 </script>

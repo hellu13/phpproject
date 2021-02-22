@@ -3,6 +3,7 @@
 
     $content_idx = $_POST['content_idx'];
     $content_pwd = $_POST['content_pwd'];
+    $currentpage = $_POST['page'];
 
     $content_idx = mysqli_real_escape_string($connect, $content_idx);
     $content_pwd = mysqli_real_escape_string($connect, $content_pwd);
@@ -21,8 +22,6 @@
     }
 
     else {
-     echo "<script>
-	        location.href=\"modify.php?content_idx=".$content_idx."\";
-        </script> ";
+     header("Location: modify.php?content_idx=$content_idx&page=$currentpage");
     }
 ?>

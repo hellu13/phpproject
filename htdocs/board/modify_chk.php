@@ -2,6 +2,7 @@
     include "../include/lib.php";
 
     $content_idx = $_GET['content_idx'];
+	$currentpage = $_GET['page'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +31,7 @@
 				<div class="card-body">
                     <form action="modify_chk_pro.php" method="post">
                     <input type="hidden" name="content_idx" value="<?=$content_idx?>">
+					<input type="hidden" name="page" value="<?=$currentpage?>">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="content_pwd" type="password" class="form-control" name="content_pwd" placeholder="Password">

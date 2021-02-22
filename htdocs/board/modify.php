@@ -2,6 +2,7 @@
     include "../include/lib.php";
 
     $content_idx = $_GET['content_idx'];
+	$currentpage = $_GET['page'];
     $content_idx = mysqli_real_escape_string($connect, $content_idx);
 
     $query = "select * from content_table where content_idx = '$content_idx' ";
@@ -35,6 +36,7 @@
 				<div class="card-body">
 					<form action="modify_pro.php" method="post">
                     <input type="hidden" name="content_idx" value="<?=$content_idx?>">
+					<input type="hidden" name="page" value="<?=$currentpage?>">
                     <div class="form-group">
 						<label for="content_writer_name">이름</label>
 						<input type="text" id="content_writer_name" name="content_writer_name" value="<?=$data['content_writer_name']?>" class="form-control" readonly="true"/>

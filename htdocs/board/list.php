@@ -1,10 +1,29 @@
 <?
     include "../include/lib.php";
+	$page_listcnt = 10; // 한 페이지당 글 개수
+	$page_paginationcnt = 10;  // 페이지 버튼 개수
+	$currentpage = $_GET['page']; // 현재 페이지 번호
+	if(!$currentpage) { $currentpage = 1; }
+	$start = ($currentpage - 1) * $page_listcnt;
 
-	$query = "select * from content_table order by content_idx desc ";
+	$query = "select count(*) as cnt from content_table ";
+	$result = mysqli_query($connect, $query);
+	$tmp = mysqli_fetch_array($result);
+	$contentCnt = $tmp['cnt'];  // 전체 글 개수
+	$pageCnt = (int)($contentCnt / $page_listcnt); // 전체 페이지 개수
+	if($contentCnt % $page_listcnt > 0) { $pageCnt = $pageCnt + 1; }
+	$min = ((int)(($currentpage-1)/$page_listcnt)) * $page_listcnt + 1;
+	$max = $min + $page_paginationcnt - 1;
+	if($max > $pageCnt) { $max = $pageCnt; }
+	$prevPage = $min - 1;
+	$nextPage = $max + 1;
+	if($nextPage > $pageCnt) { $nextPage = $pageCnt; }
+
+
+	$query = "select * from content_table order by content_idx desc limit $start, $page_listcnt";
 	$result = mysqli_query($connect, $query);
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html>;
 <html>
 <head>
 <meta charset="UTF-8">
@@ -42,7 +61,7 @@
 					<tr>
 					
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_idx']?></td>
-						<td><a href='read.php?content_idx=<?=$data['content_idx']?>'><?=$data['content_subject']?></a></td>
+						<td><a href='read.php?content_idx=<?=$data['content_idx']?>&page=<?=$currentpage?>'><?=$data['content_subject']?></a></td>
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_writer_name']?></td>
 						<td class="text-center d-none d-md-table-cell"><?=substr($data['content_date'], 0, 10)?></td>
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_cnt']?></td>
@@ -53,42 +72,35 @@
 			
 			<div class="d-none d-md-block">
 				<ul class="pagination justify-content-center">
-					<li class="page-item">
+					<? if($prevPage<=0) {?>
+					<li class="page-item disabled">
 						<a href="#" class="page-link">이전</a>
 					</li>
+					<?} else { ?>
 					<li class="page-item">
-						<a href="#" class="page-link">1</a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$prevPage?>" class="page-link">이전</a>
 					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">2</a>
+					<? } ?>
+					<? for($i=$min; $i<=$max; $i++) { ?>
+					<?if($i==$currentpage) {?>
+					<li class="page-item active">
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>" class="page-link"><?=$i?></a>
 					</li>
+					<? } else { ?>
 					<li class="page-item">
-						<a href="#" class="page-link">3</a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>" class="page-link"><?=$i?></a>
 					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">4</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">5</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">6</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">7</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">8</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">9</a>
-					</li>
-					<li class="page-item">
-						<a href="#" class="page-link">10</a>
-					</li>
-					<li class="page-item">
+					<? } ?>
+					<? } ?>
+					<? if($max >= $pageCnt) { ?>
+					<li class="page-item disabled">
 						<a href="#" class="page-link">다음</a>
 					</li>
+					<? } else { ?>
+					<li class="page-item">
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$nextPage?>" class="page-link">다음</a>
+					</li>
+					<? } ?>
 				</ul>
 			</div>
 			
