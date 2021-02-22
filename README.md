@@ -72,7 +72,8 @@
     
     > 구현 화면  
     
-    <img width="540" alt="조회수" src="https://user-images.githubusercontent.com/46749717/108604606-50371880-73f2-11eb-93e4-bf39d9ba8f34.png">
+    <img width="540" alt="페이징" src="https://user-images.githubusercontent.com/46749717/108706869-9905e300-7552-11eb-859d-ca36afed6e49.png">
+
   
       
 + 회원 관리
