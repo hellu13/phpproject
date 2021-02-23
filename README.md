@@ -1,4 +1,4 @@
-# PHP 프로젝트(진행중)  
+# PHP 프로젝트()  
 
 ## 사용 언어
 + HTML, CSS(BootStrap3), JavaScript(JQuery)  
