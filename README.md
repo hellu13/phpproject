@@ -72,7 +72,20 @@
     
     > 구현 화면  
     
-    <img width="540" alt="페이징" src="https://user-images.githubusercontent.com/46749717/108706869-9905e300-7552-11eb-859d-ca36afed6e49.png">
+    <img width="540" alt="페이징" src="https://user-images.githubusercontent.com/46749717/108706869-9905e300-7552-11eb-859d-ca36afed6e49.png">  
+      
+  + 글 검색
+    + 제목, 내용 통합 검색
+    + 검색 시 검색에 따른 페이징 처리
+    + 글 읽기 후 목록 보기 시 검색 목록 유지  
+      
+    > 주요 코드  
+      
+    [list.php](https://github.com/hellu13/phpproject/blob/main/htdocs/board/list.php)  
+      
+    > 구현 화면  
+    
+    <>
 
   
       
@@ -95,6 +108,7 @@
     > 주요 코드  
     
     [login.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/login.php) / [login_pro.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/login_pro.php) / [logout.php](https://github.com/hellu13/phpproject/blob/main/htdocs/user/logout.php)  
+    
     
    
     
