@@ -1,13 +1,23 @@
 <?
     include "../include/lib.php";
+	$search = $_REQUEST['search'];
+	
+
+	$option = "1=1 ";
+	if($search) {
+		$search = mysqli_real_escape_string($connect, $search);
+		$option .= "and (content_subject like '%$search%' or content_text like '%$search%') ";
+	}
+	
 	$page_listcnt = 10; // 한 페이지당 글 개수
 	$page_paginationcnt = 10;  // 페이지 버튼 개수
 	$currentpage = $_GET['page']; // 현재 페이지 번호
 	if(!$currentpage) { $currentpage = 1; }
 	$start = ($currentpage - 1) * $page_listcnt;
 
-	$query = "select count(*) as cnt from content_table ";
-	$result = mysqli_query($connect, $query);
+	$query = "select count(*) as cnt from content_table where $option";
+	echo $query;
+	$result = mysqli_query($connect, $query) or die(mysqli_error($connect));
 	$tmp = mysqli_fetch_array($result);
 	$contentCnt = $tmp['cnt'];  // 전체 글 개수
 	$pageCnt = (int)($contentCnt / $page_listcnt); // 전체 페이지 개수
@@ -18,9 +28,9 @@
 	$prevPage = $min - 1;
 	$nextPage = $max + 1;
 	if($nextPage > $pageCnt) { $nextPage = $pageCnt; }
+	
 
-
-	$query = "select * from content_table order by content_idx desc limit $start, $page_listcnt";
+	$query = "select * from content_table where $option order by content_idx desc limit $start, $page_listcnt";
 	$result = mysqli_query($connect, $query);
 ?>
 <!DOCTYPE html>;
@@ -45,7 +55,22 @@
 <div class="container" style="margin-top:100px">
 	<div class="card shadow">
 		<div class="card-body">
-			<h4 class="card-title">자유 게시판</h4>
+			<div class="row">
+				<div class="col-sm-8">
+					<h4 class="card-title">자유 게시판</h4>
+				</div>
+			<div class="col-sm-4">
+			<form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+			<div class="input-group">
+				<input type="text" id="search" name="search" class="form-control" placeholder="통합검색">
+				<div class="input-group-btn">
+					<button class="btn btn-default" type="submit">
+						<i class="glyphicon glyphicon-search"></i>
+					</button>
+				</div>
+			</div>
+			</form>
+			</div>
 			<table class="table table-hover" id='board_list'>
 				<thead>
 					<tr>
@@ -61,7 +86,7 @@
 					<tr>
 					
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_idx']?></td>
-						<td><a href='read.php?content_idx=<?=$data['content_idx']?>&page=<?=$currentpage?>'><?=$data['content_subject']?></a></td>
+						<td><a href='read.php?content_idx=<?=$data['content_idx']?>&page=<?=$currentpage?>&search=<?=$search?>'><?=$data['content_subject']?></a></td>
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_writer_name']?></td>
 						<td class="text-center d-none d-md-table-cell"><?=substr($data['content_date'], 0, 10)?></td>
 						<td class="text-center d-none d-md-table-cell"><?=$data['content_cnt']?></td>
@@ -78,17 +103,17 @@
 					</li>
 					<?} else { ?>
 					<li class="page-item">
-						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$prevPage?>" class="page-link">이전</a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$prevPage?>&search=<?=$search?>" class="page-link">이전</a>
 					</li>
 					<? } ?>
 					<? for($i=$min; $i<=$max; $i++) { ?>
 					<?if($i==$currentpage) {?>
 					<li class="page-item active">
-						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>" class="page-link"><?=$i?></a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>&search=<?=$search?>" class="page-link"><?=$i?></a>
 					</li>
 					<? } else { ?>
 					<li class="page-item">
-						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>" class="page-link"><?=$i?></a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$i?>&search=<?=$search?>" class="page-link"><?=$i?></a>
 					</li>
 					<? } ?>
 					<? } ?>
@@ -98,7 +123,7 @@
 					</li>
 					<? } else { ?>
 					<li class="page-item">
-						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$nextPage?>" class="page-link">다음</a>
+						<a href="<?=$_SERVER['PHP_SELF']?>?page=<?=$nextPage?>&search=<?=$search?>" class="page-link">다음</a>
 					</li>
 					<? } ?>
 				</ul>

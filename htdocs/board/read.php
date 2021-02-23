@@ -1,6 +1,7 @@
 <?
     include "../include/lib.php";
 
+	$search = $_GET['search'];
 	$currentpage = $_GET['page'];
     $content_idx = $_GET['content_idx'];
     $content_idx = mysqli_real_escape_string($connect, $content_idx);
@@ -68,7 +69,7 @@
 					<? } ?>
 					<div class="form-group">
 						<div class="text-right">
-							<a href="list.php?page=<?=$currentpage?>" class="btn btn-primary">목록보기</a>
+							<a href="list.php?page=<?=$currentpage?>&search=<?=$search?>" class="btn btn-primary">목록보기</a>
 							<a href="modify_chk.php?content_idx=<?=$content_idx?>&page=<?=$currentpage?>" class="btn btn-info">수정하기</a>
 							<a href="delete_chk.php?content_idx=<?=$content_idx?>" class="btn btn-danger">삭제하기</a>
 						</div>
